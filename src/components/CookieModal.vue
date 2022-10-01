@@ -1,12 +1,30 @@
 <script setup>
-import { ref } from "vue";
+import { onMounted, ref } from "vue";
 
 const emit = defineEmits(["close", "accept", "decline"]);
+const showModal = ref(false);
 const showOptions = ref(false);
+const COOKIE_NAME = "cookie-preferences";
 const cookiesStatus = ref({
   essential: true,
   analytics: true,
   marketing: true,
+});
+
+onMounted(() => {
+  // Parse stored cookies looking for saved preferences
+  const cookieStrings = document.cookie.split(";");
+  const keyValPairs = cookieStrings.map((str) => str.trim().split("="));
+  const consentCookie = keyValPairs.find(([key]) => key === COOKIE_NAME);
+
+  if (consentCookie) {
+    cookiesStatus.value = JSON.parse(consentCookie[1]);
+    emit("accept", cookieStrings.value);
+    emit("close");
+  }
+
+  // Prevent showing modal until cookies are searched
+  showModal.value = true;
 });
 
 const close = () => {
@@ -14,6 +32,11 @@ const close = () => {
 };
 
 const accept = (value) => {
+  // Save preferences to cookie
+  document.cookie = `${COOKIE_NAME}=${JSON.stringify(
+    cookiesStatus.value
+  )}; expires=Fri, 31 Dec 9999 23:59:59 GMT;`;
+
   emit("accept", value);
   close();
 };
@@ -26,7 +49,7 @@ const decline = () => {
 
 <template>
   <transition name="modal-fade">
-    <div class="modal-backdrop">
+    <div class="modal-backdrop" v-if="showModal">
       <div
         class="modal"
         role="dialog"
