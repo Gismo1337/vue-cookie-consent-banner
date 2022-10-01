@@ -31,3 +31,14 @@ function setCookies(selectedCookies) {
     <template v-slot:footer> </template>
   </CookieModal>
 </template>
+
+<style scoped>
+main {
+  padding: 1rem;
+  margin: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+</style>

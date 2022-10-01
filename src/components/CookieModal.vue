@@ -125,7 +125,7 @@ const decline = () => {
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: rgba(0, 0, 0, 0.3);
+  background: #c6c6c64d;
   display: flex;
   justify-content: center;
   align-items: end;
@@ -133,7 +133,7 @@ const decline = () => {
 
 .modal {
   background: #ffffff;
-  box-shadow: 2px 2px 20px 1px;
+  box-shadow: #c0c0c195 0px 7px 29px 0px;
   overflow-x: auto;
   display: flex;
   flex-direction: column;
@@ -163,6 +163,7 @@ const decline = () => {
 .modal-body {
   position: relative;
   padding: 20px 10px;
+  color: black;
 }
 
 .btn-close {
