@@ -12,6 +12,8 @@ function closeModal() {
 // do something with the selected cookies like store them in a cookie session
 function setCookies(selectedCookies) {
   console.log("Selected:", selectedCookies);
+  const body = document.querySelector('body');
+  body.style.overflow = '';
 }
 </script>
 

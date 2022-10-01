@@ -21,6 +21,9 @@ onMounted(() => {
     cookiesStatus.value = JSON.parse(consentCookie[1]);
     emit("accept", cookieStrings.value);
     emit("close");
+  } else {
+    const body = document.querySelector('body');
+    body.style.overflow = 'hidden';
   }
 
   // Prevent showing modal until cookies are searched
