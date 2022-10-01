@@ -22,8 +22,7 @@ onMounted(() => {
     emit("accept", cookieStrings.value);
     emit("close");
   } else {
-    const body = document.querySelector('body');
-    body.style.overflow = 'hidden';
+    emit('toggleScroll', false);
   }
 
   // Prevent showing modal until cookies are searched
@@ -41,11 +40,13 @@ const accept = (value) => {
   )}; expires=Fri, 31 Dec 9999 23:59:59 GMT;`;
 
   emit("accept", value);
+  emit('toggleScroll', true);
   close();
 };
 
 const decline = () => {
   emit("decline", cookiesStatus.value);
+  emit('toggleScroll', true);
   close();
 };
 </script>
