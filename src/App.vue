@@ -16,11 +16,7 @@ function setCookies(selectedCookies) {
 }
 
 function toggleScroll(payload) {
-  if (!payload) {
-    body.style.overflow = 'hidden';
-  } else {
-    body.style.overflow = '';
-  }
+  body.style.overflow = !payload ? 'hidden' : ''
 }
 </script>
 
