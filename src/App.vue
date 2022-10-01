@@ -1,6 +1,13 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+
+import CookieModal from "./components/CookieModal.vue";
+import { ref } from 'vue'
+
+const isModalVisible = ref(true)
+
+function closeModal() {
+  isModalVisible.value = false;
+}
 </script>
 
 <template>
@@ -8,13 +15,25 @@ import TheWelcome from './components/TheWelcome.vue'
     <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
 
     <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+      This could be your website
     </div>
   </header>
 
   <main>
-    <TheWelcome />
+
   </main>
+
+  <CookieModal  v-show="isModalVisible"
+                @close="closeModal" >
+    <template v-slot:header>
+    </template>
+
+    <template v-slot:body>
+    </template>
+
+    <template v-slot:footer>
+    </template>
+  </CookieModal>
 </template>
 
 <style scoped>
