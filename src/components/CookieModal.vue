@@ -45,7 +45,7 @@ const accept = (value) => {
 };
 
 const decline = () => {
-  emit("decline", cookiesStatus.value);;
+  emit("decline", cookiesStatus.value);
   close();
 };
 </script>
