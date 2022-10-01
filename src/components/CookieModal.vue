@@ -30,6 +30,7 @@ onMounted(() => {
 });
 
 const close = () => {
+  emit('toggleScroll', true);
   emit("close");
 };
 
@@ -40,13 +41,11 @@ const accept = (value) => {
   )}; expires=Fri, 31 Dec 9999 23:59:59 GMT;`;
 
   emit("accept", value);
-  emit('toggleScroll', true);
   close();
 };
 
 const decline = () => {
-  emit("decline", cookiesStatus.value);
-  emit('toggleScroll', true);
+  emit("decline", cookiesStatus.value);;
   close();
 };
 </script>
