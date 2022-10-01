@@ -23,7 +23,6 @@ const decline = () => {
   close();
 }
 
-
 </script>
 
 <template>
@@ -58,8 +57,6 @@ const decline = () => {
           <slot name="body" >
             We are using cookies to give you the best experience on our website. You can find out more about which cookies we are using or switch them off in settings.
           </slot>
-
-
         </section>
 
         <section
@@ -82,8 +79,6 @@ const decline = () => {
               <label for="essential">Essential</label>
             </div>
           </slot>
-
-
         </section>
 
         <footer class="modal-footer">
@@ -118,9 +113,7 @@ const decline = () => {
             >
               Decline
             </button>
-
           </div>
-
         </footer>
       </div>
     </div>
@@ -225,8 +218,6 @@ const decline = () => {
 .check-group input {
   margin-right: 10px;
 }
-
-
 
 /* Clear floats (clearfix hack) */
 .btn-group:after {
