@@ -15,6 +15,10 @@ See [Vite Configuration Reference](https://vitejs.dev/config/).
 ## Project Setup
 
 ```sh
+git clone https://github.com/Gismo1337/vue-cookie-consent-banner
+```
+
+```sh
 npm install
 ```
 
