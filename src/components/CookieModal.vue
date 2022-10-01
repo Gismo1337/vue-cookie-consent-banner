@@ -240,4 +240,8 @@ const decline = () => {
 .modal-fade-leave-active {
   transition: opacity 0.5s ease;
 }
+
+label {
+  color: black;
+}
 </style>
