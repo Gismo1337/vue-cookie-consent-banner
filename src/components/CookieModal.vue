@@ -139,6 +139,7 @@ const decline = () => {
   flex-direction: column;
   border-radius: 10px;
   margin-bottom: 1rem;
+  margin: 1.25rem;
 }
 
 .modal-header,
