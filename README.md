@@ -34,6 +34,7 @@ npm run dev
 npm run build
 ```
 
+<!-- Prewritten for later use
 ## USAGE
 
 `npm install vue-cookie-consent-banner`
@@ -76,3 +77,4 @@ function setCookies(selectedCookies) {
   </VueCookieConsentBanner>
 ```
 
+-->
