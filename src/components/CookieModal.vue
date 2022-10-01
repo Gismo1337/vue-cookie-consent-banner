@@ -13,16 +13,13 @@ const close = () => {
   emit('close')
 }
 
-const accept = () => {
-  emit('accept', cookiesStatus.value)
+const accept = (value) => {
+  emit('accept', value);
+  close();
 }
 
 const decline = () => {
-  emit('decline', cookiesStatus.value = {
-    essential: true,
-    analytics: false,
-    marketing: false
-  });
+  emit('decline', cookiesStatus.value );
   close();
 }
 
@@ -47,7 +44,7 @@ const decline = () => {
           <button
               type="button"
               class="btn-close"
-              @click="close"
+              @click="decline"
               aria-label="Close modal"
           >
             X
@@ -98,7 +95,7 @@ const decline = () => {
             <button
                 type="button"
                 class="btn-accept"
-                @click="close"
+                @click="accept(cookiesStatus)"
                 aria-label="Close modal"
             >
               Accept

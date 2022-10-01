@@ -1,30 +1,31 @@
 <script setup>
-
-import CookieModal from "./components/CookieModal.vue";
 import { ref } from 'vue'
+import CookieModal from "./components/CookieModal.vue";
 
-const isModalVisible = ref(true)
+const isModalVisible = ref(true);
 
+// Hide modal when user clicks a button
 function closeModal() {
   isModalVisible.value = false;
 }
+
+// do something with the selected cookies like store them in a cookie session
+function setCookies(selectedCookies) {
+  console.log('Selected:', selectedCookies);
+}
+
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      This could be your website
-    </div>
-  </header>
-
   <main>
-
+    This could be the main content of the page
   </main>
 
   <CookieModal  v-show="isModalVisible"
-                @close="closeModal" >
+                @close="closeModal"
+                @decline="setCookies"
+                @accept="setCookies" >
+
     <template v-slot:header>
     </template>
 
@@ -33,34 +34,6 @@ function closeModal() {
 
     <template v-slot:footer>
     </template>
+
   </CookieModal>
 </template>
-
-<style scoped>
-header {
-  line-height: 1.5;
-}
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-}
-</style>
