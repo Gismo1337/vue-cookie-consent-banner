@@ -21,6 +21,8 @@ onMounted(() => {
     cookiesStatus.value = JSON.parse(consentCookie[1]);
     emit("accept", cookieStrings.value);
     emit("close");
+  } else {
+    emit('toggleScroll', false);
   }
 
   // Prevent showing modal until cookies are searched
@@ -28,6 +30,7 @@ onMounted(() => {
 });
 
 const close = () => {
+  emit('toggleScroll', true);
   emit("close");
 };
 

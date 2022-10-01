@@ -3,6 +3,7 @@ import { ref } from "vue";
 import CookieModal from "./components/CookieModal.vue";
 
 const isModalVisible = ref(true);
+const body = document.querySelector('body');
 
 // Hide modal when user clicks a button
 function closeModal() {
@@ -12,6 +13,10 @@ function closeModal() {
 // do something with the selected cookies like store them in a cookie session
 function setCookies(selectedCookies) {
   console.log("Selected:", selectedCookies);
+}
+
+function toggleScroll(payload) {
+  body.style.overflow = !payload ? 'hidden' : ''
 }
 </script>
 
@@ -23,6 +28,7 @@ function setCookies(selectedCookies) {
     @close="closeModal"
     @decline="setCookies"
     @accept="setCookies"
+    @toggleScroll="toggleScroll"
   >
     <template v-slot:header> </template>
 
