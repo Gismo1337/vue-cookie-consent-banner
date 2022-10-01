@@ -1,12 +1,27 @@
 {
   "name": "vue-cookie-consent-banner",
-  "version": "0.0.0",
+  "version": "0.0.1",
+  "private": false,
+  "author": {
+    "name": "Sebastian Richter",
+    "email": "richter@warespace.de"
+  },
+  "repository": "https://github.com/Gismo1337/vue-cookie-consent-banner",
+  "bugs": "https://github.com/Gismo1337/vue-cookie-consent-banner/issues",
+  "keywords": ["vue", "cookie", "consent", "banner", "npm", "package", "component", "plugin", "vuejs", "vue-component", "vue-plugin"],
+  "license": "MIT",
+  "main" : ".dist/vue-cookie-consent-banner.common.js",
+  "files": ["dist/*"],
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview --port 4173"
+    "preview": "vite preview --port 4173",
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "build-library" : "vue-cli-service build --target lib --name vue-hello-world-simple ./src/install.js",
+    "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "@vue/cli-service": "^5.0.8",
     "vue": "^3.2.38"
   },
   "devDependencies": {

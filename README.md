@@ -27,3 +27,46 @@ npm run dev
 ```sh
 npm run build
 ```
+
+## USAGE
+
+`npm install vue-cookie-consent-banner`
+
+add the following to your App.vue
+
+
+```js
+import { ref } from 'vue'
+import VueCookieConsentBanner from "@vue-cookie-consent-banner";
+
+const isModalVisible = ref(true);
+
+// Hide modal when user clicks a button
+function closeModal() {
+  isModalVisible.value = false;
+}
+
+// do something with the selected cookies like store them in a cookie session
+function setCookies(selectedCookies) {
+  console.log('Selected:', selectedCookies);
+}
+```
+
+```vue
+<VueCookieConsentBanner  v-show="isModalVisible"
+                @close="closeModal"
+                @decline="setCookies"
+                @accept="setCookies" >
+
+    <template v-slot:header>
+    </template>
+
+    <template v-slot:body>
+    </template>
+
+    <template v-slot:footer>
+    </template>
+
+  </VueCookieConsentBanner>
+```
+
