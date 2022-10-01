@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue'
+import { ref } from "vue";
 import CookieModal from "./components/CookieModal.vue";
 
 const isModalVisible = ref(true);
@@ -11,29 +11,23 @@ function closeModal() {
 
 // do something with the selected cookies like store them in a cookie session
 function setCookies(selectedCookies) {
-  console.log('Selected:', selectedCookies);
+  console.log("Selected:", selectedCookies);
 }
-
 </script>
 
 <template>
-  <main>
-    This could be the main content of the page
-  </main>
+  <main>This could be the main content of the page</main>
 
-  <CookieModal  v-show="isModalVisible"
-                @close="closeModal"
-                @decline="setCookies"
-                @accept="setCookies" >
+  <CookieModal
+    v-show="isModalVisible"
+    @close="closeModal"
+    @decline="setCookies"
+    @accept="setCookies"
+  >
+    <template v-slot:header> </template>
 
-    <template v-slot:header>
-    </template>
+    <template v-slot:body> </template>
 
-    <template v-slot:body>
-    </template>
-
-    <template v-slot:footer>
-    </template>
-
+    <template v-slot:footer> </template>
   </CookieModal>
 </template>
