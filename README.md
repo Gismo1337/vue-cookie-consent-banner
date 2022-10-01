@@ -1,3 +1,5 @@
+![Preview](https://s20.directupload.net/images/221001/kraykcfh.png)
+
 # vue-cookie-consent-banner
 
 This template should help get you started developing with Vue 3 in Vite.
