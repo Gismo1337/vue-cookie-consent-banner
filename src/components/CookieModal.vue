@@ -22,7 +22,7 @@ onMounted(() => {
     emit("accept", cookieStrings.value);
     emit("close");
   } else {
-    emit('toggleScroll', false);
+    emit("toggleScroll", false);
   }
 
   // Prevent showing modal until cookies are searched
@@ -30,7 +30,7 @@ onMounted(() => {
 });
 
 const close = () => {
-  emit('toggleScroll', true);
+  emit("toggleScroll", true);
   emit("close");
 };
 
@@ -73,28 +73,28 @@ const decline = () => {
 
         <section class="modal-body" id="modalDescription">
           <slot name="body">
-            We are using cookies to give you the best experience on our website.
-            You can find out more about which cookies we are using or switch
-            them off in settings.
+            We are using cookies to give you the best experience on our website. You can
+            find out more about which cookies we are using or switch them off in settings.
           </slot>
         </section>
 
         <section v-if="showOptions" class="modal-options" id="options">
           <slot name="options">
             <div class="check-group">
-              <input
-                type="checkbox"
-                id="analytics"
-                v-model="cookiesStatus.analytics"
-              />
+              <Transition name="fade" mode="out-in">
+                <input
+                  type="checkbox"
+                  id="analytics"
+                  :key="cookiesStatus.analytics"
+                  v-model="cookiesStatus.analytics"
+                />
+              </Transition>
               <label for="analytics">Analytics</label>
             </div>
             <div class="check-group">
-              <input
-                type="checkbox"
-                id="marketing"
-                v-model="cookiesStatus.marketing"
-              />
+              <Transition name="fade" mode="out-in">
+              <input type="checkbox" :key="cookiesStatus.marketing" id="marketing" v-model="cookiesStatus.marketing" />
+              </Transition>
               <label for="marketing">Marketing</label>
             </div>
             <div class="check-group">
@@ -244,6 +244,10 @@ const decline = () => {
   margin-right: 10px;
 }
 
+.check-group label{
+  cursor: pointer; /* label cursor set pointer */
+}
+
 /* Clear floats (clearfix hack) */
 .btn-group:after {
   content: "";
@@ -259,7 +263,7 @@ const decline = () => {
 
 .modal-fade-enter,
 .modal-fade-leave-to {
-  opacity: 0;
+  opacity: 0.7;
 }
 
 .modal-fade-enter-active,
@@ -267,6 +271,16 @@ const decline = () => {
   transition: opacity 0.5s ease;
 }
 
+/* Here fade animation css */
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.25s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0.6;
+}
 label {
   color: black;
 }
