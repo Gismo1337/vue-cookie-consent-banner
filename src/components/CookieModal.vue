@@ -1,7 +1,7 @@
 <script setup>
 import { onMounted, ref } from "vue";
 
-const emit = defineEmits(["close", "accept", "decline"]);
+const emit = defineEmits(["close", "accept", "decline", "toggleScroll"]);
 const showModal = ref(false);
 const showOptions = ref(false);
 const COOKIE_NAME = "cookie-preferences";
