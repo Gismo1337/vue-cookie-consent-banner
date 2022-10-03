@@ -41,7 +41,6 @@ function toggleScroll(payload) {
 <style scoped>
 main {
   padding: 1rem;
-  margin: 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
