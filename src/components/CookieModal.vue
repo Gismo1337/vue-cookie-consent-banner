@@ -32,6 +32,7 @@ onMounted(() => {
 const close = () => {
   emit("toggleScroll", true);
   emit("close");
+
 };
 
 const accept = (value) => {
@@ -47,6 +48,7 @@ const accept = (value) => {
 const decline = () => {
   emit("decline", cookiesStatus.value);
   close();
+  document.body.innerHTML= "<h1 style='text-align:center'>This site require cookies!!</h1>";
 };
 </script>
 
