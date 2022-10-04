@@ -99,18 +99,27 @@ const decline = () => {
                   v-model="cookiesStatus.analytics"
                 />
               </Transition>
-              <label for="analytics">Analytics</label>
+              <label for="analytics">Analytics   </label>
+              <slot>
+                - Analytics cookies are used to track website visitors and their user behaviour.
+              </slot>
             </div>
             <div class="check-group">
               <Transition name="fade" mode="out-in">
               <input type="checkbox" :key="cookiesStatus.marketing" id="marketing" v-model="cookiesStatus.marketing" />
               </Transition>
               <label for="marketing">Marketing</label>
+              <slot>
+                - Marketing Cookies are used to send advertising, or to track the user across several websites for marketing purposes.
+              </slot>
             </div>
             <div class="check-group">
               <!-- NO v-model because required! -->
               <input checked disabled type="checkbox" id="essential" />
               <label for="essential">Essential</label>
+              <slot>
+                - Essential cookies are essential for a website to function correctly.
+              </slot>
             </div>
           </slot>
         </section>
@@ -254,6 +263,7 @@ const decline = () => {
   padding: 10px; /* Some padding */
   cursor: pointer; /* Pointer/hand icon */
   float: left; /* Float the checkboxes side by side */
+  color: rgb(93, 92, 92);
 }
 
 .check-group input {
