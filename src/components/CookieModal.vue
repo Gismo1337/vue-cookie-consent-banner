@@ -179,6 +179,7 @@ const decline = () => {
 }
 
 .modal {
+  max-width: 1055px;
   background: #ffffff;
   box-shadow: #c0c0c195 0px 7px 29px 0px;
   overflow-x: auto;
