@@ -202,6 +202,7 @@ const decline = () => {
   color: #4aae9b;
   justify-content: space-between;
   font-weight: bold;
+  font-size: 1.2em;
 }
 
 .modal-footer {
@@ -229,8 +230,8 @@ const decline = () => {
 }
 
 .btn-close-svg {
-  width: 25px;
-  height: 25px;
+  width: 20px;
+  height: 20px;
   fill: #4aae9b;
 }
 
