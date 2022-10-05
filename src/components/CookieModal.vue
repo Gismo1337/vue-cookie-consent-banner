@@ -1,5 +1,6 @@
 <script setup>
 import FooterSection from "./FooterSection.vue";
+import OptionSection from "./OptionSection.vue";
 import { onMounted, ref } from "vue";
 
 const emit = defineEmits(["close", "accept", "decline", "toggleScroll"]);
@@ -33,7 +34,6 @@ onMounted(() => {
 const close = () => {
   emit("toggleScroll", true);
   emit("close");
-
 };
 
 const accept = (value) => {
@@ -95,41 +95,10 @@ const toggleOptions = () => {
           </slot>
         </section>
 
-        <section v-if="showOptions" class="modal-options" id="options">
-          <slot name="options">
-            <div class="check-group">
-              <Transition name="fade" mode="out-in">
-                <input
-                  type="checkbox"
-                  id="analytics"
-                  :key="cookiesStatus.analytics"
-                  v-model="cookiesStatus.analytics"
-                />
-              </Transition>
-              <label for="analytics">Analytics   </label>
-              <slot>
-                - Analytics cookies are used to track website visitors and their user behaviour.
-              </slot>
-            </div>
-            <div class="check-group">
-              <Transition name="fade" mode="out-in">
-              <input type="checkbox" :key="cookiesStatus.marketing" id="marketing" v-model="cookiesStatus.marketing" />
-              </Transition>
-              <label for="marketing">Marketing</label>
-              <slot>
-                - Marketing Cookies are used to send advertising, or to track the user across several websites for marketing purposes.
-              </slot>
-            </div>
-            <div class="check-group">
-              <!-- NO v-model because required! -->
-              <input checked disabled type="checkbox" id="essential" />
-              <label for="essential">Essential</label>
-              <slot>
-                - Essential cookies are essential for a website to function correctly.
-              </slot>
-            </div>
-          </slot>
-        </section>
+        <option-section
+          v-if="showOptions"
+          :cookies-status="cookiesStatus"
+        />
 
         <footer-section
           @accept="accept(cookiesStatus)"
@@ -176,7 +145,6 @@ const toggleOptions = () => {
   font-size: 1.2em;
   padding: 15px;
   display: flex;
-
 }
 
 .modal-body {
@@ -218,11 +186,6 @@ const toggleOptions = () => {
   color: rgb(93, 92, 92);
 }
 
-.check-group input {
-  margin-right: 10px;
-  cursor: pointer; /* Cursor pointer icon */
-}
-
 .check-group label{
   cursor: default; /* label cursor set default */
 }
@@ -237,16 +200,6 @@ const toggleOptions = () => {
   transition: opacity 0.5s ease;
 }
 
-/* Here fade animation css */
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.25s ease;
-}
-
-.fade-enter-from,
-.fade-leave-to {
-  opacity: 0.6;
-}
 label {
   color: black;
 }
