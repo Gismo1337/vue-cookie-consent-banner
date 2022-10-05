@@ -75,32 +75,33 @@ const decline = () => {
             them off in settings.
           </slot>
         </section>
-
-        <section v-if="showOptions" class="modal-options" id="options">
-          <slot name="options">
-            <div class="check-group">
-              <input
-                type="checkbox"
-                id="analytics"
-                v-model="cookiesStatus.analytics"
-              />
-              <label for="analytics">Analytics</label>
-            </div>
-            <div class="check-group">
-              <input
-                type="checkbox"
-                id="marketing"
-                v-model="cookiesStatus.marketing"
-              />
-              <label for="marketing">Marketing</label>
-            </div>
-            <div class="check-group">
-              <!-- NO v-model because required! -->
-              <input checked disabled type="checkbox" id="essential" />
-              <label for="essential">Essential</label>
-            </div>
-          </slot>
-        </section>
+        <transition name="slide-fade" mode="out-in">
+          <section v-if="showOptions" class="modal-options" id="options">
+              <slot name="options">
+                <div class="check-group">
+                  <input
+                    type="checkbox"
+                    id="analytics"
+                    v-model="cookiesStatus.analytics"
+                  />
+                  <label for="analytics">Analytics</label>
+                </div>
+                <div class="check-group">
+                  <input
+                    type="checkbox"
+                    id="marketing"
+                    v-model="cookiesStatus.marketing"
+                  />
+                  <label for="marketing">Marketing</label>
+                </div>
+                <div class="check-group">
+                  <!-- NO v-model because required! -->
+                  <input checked disabled type="checkbox" id="essential" />
+                  <label for="essential">Essential</label>
+                </div>
+              </slot>
+          </section>
+        </transition>
 
         <footer class="modal-footer">
           <slot name="footer">
@@ -262,6 +263,22 @@ const decline = () => {
 .modal-fade-enter-active,
 .modal-fade-leave-active {
   transition: opacity 0.5s ease;
+}
+
+.slide-fade-enter-active,
+.slide-fade-leave-active {
+  transition: all .4s ease-out;
+  overflow: hidden;
+}
+
+.slide-fade-enter-to,
+.slide-fade-leave-from {
+  height: 44px;
+}
+.slide-fade-enter-from,
+.slide-fade-leave-to {
+  height: 0;
+  opacity: 0;
 }
 
 label {
