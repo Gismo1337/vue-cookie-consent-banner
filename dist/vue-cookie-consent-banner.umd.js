@@ -4,9 +4,9 @@
 	else if(typeof define === 'function' && define.amd)
 		define([], factory);
 	else if(typeof exports === 'object')
-		exports["vue-hello-world-simple"] = factory(require("vue"));
+		exports["vue-cookie-consent-banner"] = factory(require("vue"));
 	else
-		root["vue-hello-world-simple"] = factory(root["Vue"]);
+		root["vue-cookie-consent-banner"] = factory(root["Vue"]);
 })((typeof self !== 'undefined' ? self : this), (__WEBPACK_EXTERNAL_MODULE__203__) => {
 return /******/ (() => { // webpackBootstrap
 /******/ 	"use strict";
@@ -375,4 +375,4 @@ if (typeof window !== "undefined" && window.Vue) {
 /******/ })()
 ;
 });
-//# sourceMappingURL=vue-hello-world-simple.umd.js.map
+//# sourceMappingURL=vue-cookie-consent-banner.umd.js.map
