@@ -155,8 +155,9 @@ const toggleOptions = () => {
 
 .btn-close {
   position: absolute;
-  top: 0;
+  top: 50%;
   right: 0;
+  transform: translate(-50%, -50%);
   border: none;
   font-size: 20px;
   padding: 15px;
@@ -170,6 +171,8 @@ const toggleOptions = () => {
   width: 20px;
   height: 20px;
   fill: #4aae9b;
+  position:absolute;
+  transform: translate(-50%, -50%);
 }
 
 .btn-group button {
