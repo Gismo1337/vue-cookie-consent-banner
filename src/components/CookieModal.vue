@@ -179,12 +179,15 @@ const toggleOptions = () => {
   float: right; /* Float the buttons side by side */
 }
 
-.check-group input {
-  margin-right: 10px;
+.check-group {
+  padding: 10px; /* Some padding */
+  cursor: default; /* Cursor default icon */
+  float: left; /* Float the checkboxes side by side */
+  color: rgb(93, 92, 92);
 }
 
 .check-group label{
-  cursor: pointer; /* label cursor set pointer */
+  cursor: default; /* label cursor set default */
 }
 
 .modal-fade-enter,
