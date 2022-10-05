@@ -25,7 +25,7 @@ const toggleOptions = () => {
           type="button"
           class="btn-accept"
           @click="accept"
-          aria-label="Close modal"
+          aria-label="Accept cookies"
       >
         Accept
       </button>
@@ -34,7 +34,7 @@ const toggleOptions = () => {
           type="button"
           class="btn-option"
           @click="toggleOptions"
-          aria-label="Close modal"
+          aria-label="View cookie options"
       >
         Options
       </button>
@@ -43,7 +43,7 @@ const toggleOptions = () => {
           type="button"
           class="btn-decline"
           @click="decline"
-          aria-label="Close modal"
+          aria-label="Decline cookies"
       >
         Decline
       </button>
