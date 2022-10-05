@@ -1,4 +1,5 @@
 <script setup>
+import FooterSection from "./FooterSection.vue";
 import { onMounted, ref } from "vue";
 
 const emit = defineEmits(["close", "accept", "decline", "toggleScroll"]);
@@ -50,6 +51,10 @@ const decline = () => {
   close();
   document.body.innerHTML= "<h1 style='text-align:center'>This site require cookies!!</h1>";
 };
+
+const toggleOptions = () => {
+  showOptions.value =! showOptions.value;
+}
 </script>
 
 <template>
@@ -126,40 +131,12 @@ const decline = () => {
           </slot>
         </section>
 
-        <footer class="modal-footer">
-          <slot name="footer">
-            <!-- Default footer! -->
-          </slot>
+        <footer-section
+          @accept="accept(cookiesStatus)"
+          @decline="decline"
+          @toggleOptions="toggleOptions">
+        </footer-section>
 
-          <div class="btn-group">
-            <button
-              type="button"
-              class="btn-accept"
-              @click="accept(cookiesStatus)"
-              aria-label="Close modal"
-            >
-              Accept
-            </button>
-
-            <button
-              type="button"
-              class="btn-option"
-              @click.prevent="showOptions = !showOptions"
-              aria-label="Close modal"
-            >
-              Options
-            </button>
-
-            <button
-              type="button"
-              class="btn-decline"
-              @click="decline"
-              aria-label="Close modal"
-            >
-              Decline
-            </button>
-          </div>
-        </footer>
       </div>
     </div>
   </transition>
@@ -190,12 +167,6 @@ const decline = () => {
   margin: 1.25rem;
 }
 
-.modal-header,
-.modal-footer {
-  padding: 15px;
-  display: flex;
-}
-
 .modal-header {
   position: relative;
   border-bottom: 1px solid #eeeeee;
@@ -203,11 +174,9 @@ const decline = () => {
   justify-content: space-between;
   font-weight: bold;
   font-size: 1.2em;
-}
+  padding: 15px;
+  display: flex;
 
-.modal-footer {
-  border-top: 1px solid #eeeeee;
-  flex-direction: column;
 }
 
 .modal-body {
@@ -235,27 +204,6 @@ const decline = () => {
   fill: #4aae9b;
 }
 
-.btn-accept {
-  color: white;
-  background: #4aae9b;
-  border: 1px solid #4aae9b;
-  border-radius: 10px;
-}
-
-.btn-decline {
-  color: white;
-  background: #a9a9a9;
-  border: 1px solid #a9a9a9;
-  border-radius: 10px;
-}
-
-.btn-option {
-  color: #4aae9b;
-  background: white;
-  border: 1px solid #4aae9b;
-  border-radius: 10px;
-}
-
 .btn-group button {
   padding: 10px 24px; /* Some padding */
   margin: 10px;
@@ -277,19 +225,6 @@ const decline = () => {
 .check-group label{
   cursor: pointer; /* label cursor set pointer */
 }
-
-/* Clear floats (clearfix hack) */
-.btn-group:after {
-  content: "";
-  clear: both;
-  display: table;
-}
-
-/* Add a background color on hover
-.btn-group button:hover {
-  background-color: #3e8e41;
-}
-*/
 
 .modal-fade-enter,
 .modal-fade-leave-to {
