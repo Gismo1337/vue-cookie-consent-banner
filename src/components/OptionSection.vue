@@ -17,7 +17,7 @@ const props = defineProps({
               v-model="cookiesStatus.analytics"
           />
         </Transition>
-          <label for="analytics">Analytics</label>
+          <label for="analytics" aria-label="Accept analytics cookies">Analytics</label>
           <p class="sub-text">
             Analytics cookies are used to track website visitors and their user behaviour.
           </p>
@@ -31,7 +31,7 @@ const props = defineProps({
               v-model="cookiesStatus.marketing"
           />
         </Transition>
-          <label for="marketing">Marketing</label>
+          <label for="marketing" aria-label="Accept marketing cookies">Marketing</label>
           <p class="sub-text">
             Marketing Cookies are used to send advertising, or to track the user across several websites for marketing purposes.
           </p>
@@ -39,7 +39,7 @@ const props = defineProps({
 
         <div class="essent-div">   <!-- NO v-model because required! -->
           <input checked disabled type="checkbox" id="essential" />
-          <label for="essential">Essential</label>
+          <label for="essential" aria-label="Accept essential cookies">Essential</label>
           <p class="sub-text">
             Essential cookies are essential for a website to function correctly.
           </p></div>
