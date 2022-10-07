@@ -30,7 +30,7 @@
   <a href="https://github.com/Gismo1337/vue-cookie-consent-banner#license">License</a>
 </p>
 
-![screenshot](https://s20.directupload.net/images/221001/kraykcfh.png)
+![screenshot](https://bilderupload.org/image/ff2c33412-open.png)
 
 <!-- omit in toc -->
 ## Table of Contents
