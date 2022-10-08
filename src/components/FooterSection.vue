@@ -1,4 +1,5 @@
 <script setup>
+import Button from "./Button.vue";
 const emit = defineEmits(["accept", "decline", "toggleOptions"]);
 
 const accept = () => {
@@ -10,8 +11,8 @@ const decline = () => {
 };
 
 const toggleOptions = () => {
-  emit("toggleOptions")
-}
+  emit("toggleOptions");
+};
 </script>
 
 <template>
@@ -21,32 +22,18 @@ const toggleOptions = () => {
     </slot>
 
     <div class="btn-group">
-      <button
-          type="button"
-          class="btn-accept"
-          @click="accept"
-          aria-label="Accept cookies"
+      <Button class="btn-accept" aria-label="Accept cookies" @click="accept"
+        >Accept</Button
       >
-        Accept
-      </button>
-
-      <button
-          type="button"
-          class="btn-option"
-          @click="toggleOptions"
-          aria-label="View cookie options"
+      <Button
+        class="btn-option"
+        aria-label="View cookie options"
+        @click="toggleOptions"
+        >Options</Button
       >
-        Options
-      </button>
-
-      <button
-          type="button"
-          class="btn-decline"
-          @click="decline"
-          aria-label="Decline cookies"
-      >
+      <Button class="btn-decline" @click="decline" aria-label="Decline cookies">
         Decline
-      </button>
+      </Button>
     </div>
   </footer>
 </template>
@@ -57,27 +44,6 @@ const toggleOptions = () => {
   display: flex;
   border-top: 1px solid #eeeeee;
   flex-direction: column;
-}
-
-.btn-accept {
-  color: white;
-  background: #4aae9b;
-  border: 1px solid #4aae9b;
-  border-radius: 10px;
-}
-
-.btn-decline {
-  color: white;
-  background: #a9a9a9;
-  border: 1px solid #a9a9a9;
-  border-radius: 10px;
-}
-
-.btn-option {
-  color: #4aae9b;
-  background: white;
-  border: 1px solid #4aae9b;
-  border-radius: 10px;
 }
 
 /* Clear floats (clearfix hack) */
