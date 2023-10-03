@@ -181,25 +181,8 @@ const toggleOptions = () => {
   float: right; /* Float the buttons side by side */
 }
 
-.check-group {
-  padding: 10px; /* Some padding */
-  cursor: default; /* Cursor default icon */
-  float: left; /* Float the checkboxes side by side */
-  color: rgb(93, 92, 92);
-}
-
 .check-group label{
   cursor: default; /* label cursor set default */
-}
-
-.modal-fade-enter,
-.modal-fade-leave-to {
-  opacity: 0.7;
-}
-
-.modal-fade-enter-active,
-.modal-fade-leave-active {
-  transition: opacity 0.5s ease;
 }
 
 label {
