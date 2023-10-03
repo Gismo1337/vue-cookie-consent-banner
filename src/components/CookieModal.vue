@@ -127,7 +127,7 @@ const toggleOptions = () => {
 .modal {
   max-width: 1055px;
   background: #ffffff;
-  box-shadow: #c0c0c195 0px 7px 29px 0px;
+  box-shadow: #c0c0c195 0 7px 29px 0;
   overflow-x: auto;
   display: flex;
   flex-direction: column;
